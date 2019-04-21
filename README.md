@@ -1,2 +1,4 @@
 # MistaDay3
-Mista  lab day 3
+Public for 19jsp2 !
+Mista lab (Microsoft Academy) contain labs every day!
+ 
