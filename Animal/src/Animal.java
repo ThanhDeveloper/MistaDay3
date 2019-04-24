@@ -31,5 +31,6 @@ public class Animal {
 		this.ageAnimal = ageAnimal;
 		this.typeAnimal = typeAnimal;
 	}
+	
 
 }

@@ -7,5 +7,6 @@ public class MainProgram {
 		System.out.println(dog1.getNameAnimal()+" "+ dog1.getAgeAnimal()+ " tuoi va la "+dog1.getTypeAnimal());
 		System.out.println(t1.getNameAnimal()+" "+ t1.getAgeAnimal()+ " tuoi va la "+t1.getTypeAnimal());
 	}
+	
 
 }
