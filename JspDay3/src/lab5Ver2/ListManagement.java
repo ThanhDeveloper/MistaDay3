@@ -7,6 +7,7 @@ public class ListManagement {
 	public static Scanner input = new Scanner(System.in);
 	public static Employee[] empArr;
 	public static int empNo;
+	public static boolean isEndProgram = false;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -31,16 +32,35 @@ public class ListManagement {
 			switch (inputNumber) {
 			case 1: // add employ
 				addEmployees();
+				askForContinues();
 				break;
 			case 2: // Show employ
 
 				showEmployees();
+				askForContinues();
 				break;
 			case 3: // Find employ
-				FindEmployees();
+				System.out.println("Input name to search! ");
+				String nameInp = input.next();
+				Employee employee = FindEmployees(nameInp);
+				System.out.println("Infor Emp");
+				System.out.println(employee);
+				String fullname = "Nguyen Tam Thanh";
+				 if(fullname.toLowerCase().contains(nameInp.toLowerCase())) {
+					 System.out.println("ok");
+				 }
+				 
+				 
+				 
+				askForContinues();
 				break;
 			case 4: // Edit employ
-				UpdateEmployees();
+				System.out.println("Update name and salary");
+				String nameUp = input.next();
+				double salaryUp = input.nextDouble();
+				UpdateEmployees(nameUp, salaryUp);
+				System.out.println();
+				askForContinues();
 			case 5:
 				break;
 			default:
@@ -52,57 +72,57 @@ public class ListManagement {
 	}
 
 	// UpdateEmp
-	private static void UpdateEmployees() {
+	private static void UpdateEmployees(String nameUp, double salaryUp) {
 		System.out.println("Enter name and salary employ to update ! ");
-		/*update with id
-		double salary = input.nextDouble();
-		Integer upChoice = input.nextInt();
-		String name = input.next();
-		Integer age = input.nextInt();
-		String jobName = input.next();
-		boolean Married = input.nextBoolean();
-		empArr[upChoice - 1].setName(name);
-		empArr[upChoice - 1].setSalary(salary);
-		empArr[upChoice - 1].setAge(age);
-		empArr[upChoice - 1].setJob(new Job(upChoice - 1, jobName));
-		empArr[upChoice - 1].setMarried(Married);
+		/*
+		 * update with id double salary = input.nextDouble(); Integer upChoice =
+		 * input.nextInt(); String name = input.next(); Integer age = input.nextInt();
+		 * String jobName = input.next(); boolean Married = input.nextBoolean();
+		 * empArr[upChoice - 1].setName(name); empArr[upChoice - 1].setSalary(salary);
+		 * empArr[upChoice - 1].setAge(age); empArr[upChoice - 1].setJob(new
+		 * Job(upChoice - 1, jobName)); empArr[upChoice - 1].setMarried(Married);
+		 * 
+		 * 
+		 * //update with name and salary String nameInput=input.next(); double
+		 * salaryInput=input.nextDouble(); for (int i = 0; i < empArr.length; i++) {
+		 * if(nameInput.equals(empArr[i].getName())) { empArr[i].setSalary(salaryInput);
+		 * } }
 		 */
-		
-		//update with name and salary
-		String nameInput=input.next();
-		double salaryInput=input.nextDouble();
 		for (int i = 0; i < empArr.length; i++) {
-			if(nameInput.equals(empArr[i].getName())) {
-				empArr[i].setSalary(salaryInput);
+			if (nameUp.equals(empArr[i].getName())) {
+				empArr[i].setSalary(salaryUp);
+				break;
 			}
 		}
-		
+
 	}
 
 	// FindEmp
-	private static void FindEmployees() {
+	private static Employee FindEmployees(String nameInp) {
 
-		System.out.println("Find with name");
-		String findName=input.next();
-/*		Integer findChoice = input.nextInt();
-		// Check and find arrObject
-		// Check with id
-		if (findChoice > empArr.length) {
-			System.out.println("No id existed");
-		} else {
-			System.out.println(empArr[findChoice - 1]);
-		}
-		*/
-		// check with name (RegexInput)
+		/*
+		 * System.out.println("Find with name"); String findName=input.next(); Integer
+		 * findChoice = input.nextInt(); // Check and find arrObject // Check with id if
+		 * (findChoice > empArr.length) { System.out.println("No id existed"); } else {
+		 * System.out.println(empArr[findChoice - 1]); }
+		 * 
+		 * // check with name (RegexInput) for (int i = 0; i < empArr.length; i++) {
+		 * if(findName.equals(empArr[i].getName())) {
+		 * System.out.println(empArr[i].toString()); }
+		 * 
+		 * 
+		 * }
+		 */
+
+		// other solution
+		Employee employee = null;
 		for (int i = 0; i < empArr.length; i++) {
-			if(findName.equals(empArr[i].getName())) {
-				System.out.println(empArr[i].toString());
+			if (nameInp.equals(empArr[i].name)) {
+				employee = empArr[i];
+				break;
 			}
-			
-			
 		}
-		
-		
+		return employee;
 	}
 
 	// ShowEmp
@@ -121,10 +141,15 @@ public class ListManagement {
 		empArr = new Employee[empNo]; // create size ObjectArray
 		// input data
 		for (int i = 0; i < empArr.length; i++) {
+			System.out.println("Name emp: ");
 			String name = input.next();
+			System.out.println("salary emp: ");
 			double salary = input.nextDouble();
+			System.out.println("Age emp: ");
 			Integer age = input.nextInt();
+			System.out.println("jobName emp: ");
 			String jobName = input.next();
+			System.out.println("Married emp: ");
 			boolean Married = input.nextBoolean();
 			Employee empObj = new Employee(name, i + 1, salary, age, Married, new Job(i + 1, jobName));
 			empArr[i] = empObj;
@@ -133,4 +158,19 @@ public class ListManagement {
 
 	}
 
+	public static void askForContinues() {
+		System.out.println("Do you want to continue? (Press 5 to end proram, 0 to come back menu) : ");
+		int inputNo = input.nextInt();
+		switch (inputNo) {
+		case 0:
+			showMenu();
+			break;
+		case 5:
+			isEndProgram = true;
+			break;
+		default:
+			break;
+		}
+
+	}
 }
