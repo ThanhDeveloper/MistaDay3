@@ -53,10 +53,11 @@ public class ListManagement {
 
 	// UpdateEmp
 	private static void UpdateEmployees() {
-		System.out.println("Enter id employ to update ! ");
+		System.out.println("Enter name and salary employ to update ! ");
+		/*update with id
+		double salary = input.nextDouble();
 		Integer upChoice = input.nextInt();
 		String name = input.next();
-		double salary = input.nextDouble();
 		Integer age = input.nextInt();
 		String jobName = input.next();
 		boolean Married = input.nextBoolean();
@@ -65,14 +66,25 @@ public class ListManagement {
 		empArr[upChoice - 1].setAge(age);
 		empArr[upChoice - 1].setJob(new Job(upChoice - 1, jobName));
 		empArr[upChoice - 1].setMarried(Married);
-
+		 */
+		
+		//update with name and salary
+		String nameInput=input.next();
+		double salaryInput=input.nextDouble();
+		for (int i = 0; i < empArr.length; i++) {
+			if(nameInput.equals(empArr[i].getName())) {
+				empArr[i].setSalary(salaryInput);
+			}
+		}
+		
 	}
 
 	// FindEmp
 	private static void FindEmployees() {
 
-		System.out.println("Find with id or name");
-		Integer findChoice = input.nextInt();
+		System.out.println("Find with name");
+		String findName=input.next();
+/*		Integer findChoice = input.nextInt();
 		// Check and find arrObject
 		// Check with id
 		if (findChoice > empArr.length) {
@@ -80,8 +92,17 @@ public class ListManagement {
 		} else {
 			System.out.println(empArr[findChoice - 1]);
 		}
+		*/
 		// check with name (RegexInput)
-
+		for (int i = 0; i < empArr.length; i++) {
+			if(findName.equals(empArr[i].getName())) {
+				System.out.println(empArr[i].toString());
+			}
+			
+			
+		}
+		
+		
 	}
 
 	// ShowEmp
