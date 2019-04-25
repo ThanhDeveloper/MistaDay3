@@ -117,7 +117,7 @@ public class ListManagement {
 		// other solution
 		Employee employee = null;
 		for (int i = 0; i < empArr.length; i++) {
-			if (nameInp.equals(empArr[i].name)) {
+			if (nameInp.equals(empArr[i].getName())) {
 				employee = empArr[i];
 				break;
 			}
