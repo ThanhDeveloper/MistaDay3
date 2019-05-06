@@ -1,12 +1,12 @@
 package lab5Ver2;
 
 public class Employee {
-	protected String name;
-	protected int id;
-	protected double salary;
-	protected int age;
-	protected boolean Married;
-	protected Job job;
+	private String name;
+	private int id;
+	private double salary;
+	private int age;
+	private boolean Married;
+	private Job job;
 	public String getName() {
 		return name;
 	}
