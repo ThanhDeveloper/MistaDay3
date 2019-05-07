@@ -2,7 +2,7 @@ package lab5Ver2;
 
 import java.util.*;
 
-public class ListManagement {
+public class ListManagement implements AbstractManagermentEmployee {
 	public static int inputNumber;
 	public static Scanner input = new Scanner(System.in);
 	public static Employee[] empArr;
@@ -28,21 +28,26 @@ public class ListManagement {
 			System.out.println("--------------------------------------");
 			System.out.println("Choose one number !");
 			inputNumber = input.nextInt();
-
+			ListManagement list=new ListManagement();
 			switch (inputNumber) {
 			case 1: // add employ
-				addEmployees();
+				//addEmployees();
+				
+				//using interface 
+				
+				list.addEmp();
 				askForContinues();
 				break;
 			case 2: // Show employ
 
-				showEmployees();
+				//showEmployees();
+				list.showEmp();
 				askForContinues();
 				break;
 			case 3: // Find employ
 				System.out.println("Input name to search! ");
 				String nameInp = input.next();
-				Employee employee = FindEmployees(nameInp);
+				Employee employee = list.findEmp(nameInp);
 				System.out.println("Infor Emp");
 				System.out.println(employee);
 				String fullname = "Nguyen Tam Thanh";
@@ -58,7 +63,8 @@ public class ListManagement {
 				System.out.println("Update name and salary");
 				String nameUp = input.next();
 				double salaryUp = input.nextDouble();
-				UpdateEmployees(nameUp, salaryUp);
+				//UpdateEmployees(nameUp, salaryUp);
+				list.updateEmp(nameUp,salaryUp);
 				System.out.println();
 				askForContinues();
 			case 5:
@@ -73,7 +79,7 @@ public class ListManagement {
 
 	// UpdateEmp
 	private static void UpdateEmployees(String nameUp, double salaryUp) {
-		System.out.println("Enter name and salary employ to update ! ");
+		
 		/*
 		 * update with id double salary = input.nextDouble(); Integer upChoice =
 		 * input.nextInt(); String name = input.next(); Integer age = input.nextInt();
@@ -88,6 +94,7 @@ public class ListManagement {
 		 * if(nameInput.equals(empArr[i].getName())) { empArr[i].setSalary(salaryInput);
 		 * } }
 		 */
+		System.out.println("Enter name and salary employ to update ! ");
 		for (int i = 0; i < empArr.length; i++) {
 			if (nameUp.equals(empArr[i].getName())) {
 				empArr[i].setSalary(salaryUp);
@@ -133,9 +140,9 @@ public class ListManagement {
 		}
 	}
 
+	/*
 	// AddEmp
 	private static void addEmployees() {
-
 		System.out.println("How many do you want to Create?");
 		empNo = input.nextInt();
 		empArr = new Employee[empNo]; // create size ObjectArray
@@ -157,7 +164,7 @@ public class ListManagement {
 		}
 
 	}
-
+*/
 	public static void askForContinues() {
 		System.out.println("Do you want to continue? (Press 5 to end proram, 0 to come back menu) : ");
 		int inputNo = input.nextInt();
@@ -172,5 +179,60 @@ public class ListManagement {
 			break;
 		}
 
+	}
+
+	public  void addEmp() {
+		// TODO Auto-generated method stub
+		System.out.println("How many do you want to Create?");
+		empNo = input.nextInt();
+		empArr = new Employee[empNo]; // create size ObjectArray
+		// input data
+		for (int i = 0; i < empArr.length; i++) {
+			System.out.println("Name emp: ");
+			String name = input.next();
+			System.out.println("salary emp: ");
+			double salary = input.nextDouble();
+			System.out.println("Age emp: ");
+			Integer age = input.nextInt();
+			System.out.println("jobName emp: ");
+			String jobName = input.next();
+			System.out.println("Married emp: ");
+			boolean Married = input.nextBoolean();
+			Employee empObj = new Employee(name, i + 1, salary, age, Married, new Job(i + 1, jobName));
+			empArr[i] = empObj;
+
+		}
+	}
+	
+
+	public    Employee findEmp(String nameInp) {
+		// TODO Auto-generated method stub
+		Employee employee = null;
+		for (int i = 0; i < empArr.length; i++) {
+			if (nameInp.equals(empArr[i].getName())) {
+				employee = empArr[i];
+				break;
+			}
+		}
+		return employee;
+	}
+
+	@Override
+	public void showEmp() {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < empArr.length; i++) {
+			System.out.println(empArr[i].toString());
+		}
+	}
+
+	@Override
+	public void updateEmp(String name, double salaryUp) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter name and salary employ to update ! ");
+		for(int i = 0;i< empArr.length;i++) {
+			if(name.equals(empArr[i].getName())) {
+				empArr[i].setSalary(salaryUp);
+			}
+		}
 	}
 }
