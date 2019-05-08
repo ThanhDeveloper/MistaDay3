@@ -16,7 +16,7 @@ public class ListManagement implements AbstractManagermentEmployee {
 	}
 
 	private static void showMenu() {
-
+		ListManagement list=new ListManagement();
 		do {
 			// menu CodeTodo
 
@@ -28,7 +28,7 @@ public class ListManagement implements AbstractManagermentEmployee {
 			System.out.println("--------------------------------------");
 			System.out.println("Choose one number !");
 			inputNumber = input.nextInt();
-			ListManagement list=new ListManagement();
+			
 			switch (inputNumber) {
 			case 1: // add employ
 				//addEmployees();
