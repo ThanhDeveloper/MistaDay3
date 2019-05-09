@@ -5,7 +5,7 @@ import java.util.*;
 public class ListManagement implements AbstractManagermentEmployee {
 	public static int inputNumber;
 	public static Scanner input = new Scanner(System.in);
-	public static Employee[] empArr;
+	ArrayList<Employee> empArr=new ArrayList<>();
 	public static int empNo;
 	public static boolean isEndProgram = false;
 
@@ -14,8 +14,12 @@ public class ListManagement implements AbstractManagermentEmployee {
 		showMenu();
 		System.out.println("The Program end !!! ");
 	}
-
+	
 	private static void showMenu() {
+		//Create list Emp Collection
+		
+		
+		//LinkedList<Employee> employees=new LinkedList<>();
 		ListManagement list=new ListManagement();
 		do {
 			// menu CodeTodo
@@ -76,11 +80,13 @@ public class ListManagement implements AbstractManagermentEmployee {
 		} while (inputNumber != 5);
 
 	}
-
+	
+	/* 
+	// This is out source code
 	// UpdateEmp
 	private static void UpdateEmployees(String nameUp, double salaryUp) {
 		
-		/*
+		
 		 * update with id double salary = input.nextDouble(); Integer upChoice =
 		 * input.nextInt(); String name = input.next(); Integer age = input.nextInt();
 		 * String jobName = input.next(); boolean Married = input.nextBoolean();
@@ -93,9 +99,9 @@ public class ListManagement implements AbstractManagermentEmployee {
 		 * salaryInput=input.nextDouble(); for (int i = 0; i < empArr.length; i++) {
 		 * if(nameInput.equals(empArr[i].getName())) { empArr[i].setSalary(salaryInput);
 		 * } }
-		 */
+		 
 		System.out.println("Enter name and salary employ to update ! ");
-		for (int i = 0; i < empArr.length; i++) {
+		for (int i = 0; i < ; i++) {
 			if (nameUp.equals(empArr[i].getName())) {
 				empArr[i].setSalary(salaryUp);
 				break;
@@ -103,7 +109,7 @@ public class ListManagement implements AbstractManagermentEmployee {
 		}
 
 	}
-
+	 
 	// FindEmp
 	private static Employee FindEmployees(String nameInp) {
 
@@ -119,7 +125,7 @@ public class ListManagement implements AbstractManagermentEmployee {
 		 * 
 		 * 
 		 * }
-		 */
+		 
 
 		// other solution
 		Employee employee = null;
@@ -139,7 +145,7 @@ public class ListManagement implements AbstractManagermentEmployee {
 			System.out.println(empArr[i].toString());
 		}
 	}
-
+	
 	/*
 	// AddEmp
 	private static void addEmployees() {
@@ -165,6 +171,7 @@ public class ListManagement implements AbstractManagermentEmployee {
 
 	}
 */
+	//askForContinues
 	public static void askForContinues() {
 		System.out.println("Do you want to continue? (Press 5 to end proram, 0 to come back menu) : ");
 		int inputNo = input.nextInt();
@@ -180,14 +187,14 @@ public class ListManagement implements AbstractManagermentEmployee {
 		}
 
 	}
+//@Overide methods AbstractManagement using collection (Arraylist)
 
-	public  void addEmp() {
+	@Override
+	public void addEmp() {
 		// TODO Auto-generated method stub
 		System.out.println("How many do you want to Create?");
 		empNo = input.nextInt();
-		empArr = new Employee[empNo]; // create size ObjectArray
-		// input data
-		for (int i = 0; i < empArr.length; i++) {
+		for (int i = 0; i < empNo; i++) {
 			System.out.println("Name emp: ");
 			String name = input.next();
 			System.out.println("salary emp: ");
@@ -199,40 +206,45 @@ public class ListManagement implements AbstractManagermentEmployee {
 			System.out.println("Married emp: ");
 			boolean Married = input.nextBoolean();
 			Employee empObj = new Employee(name, i + 1, salary, age, Married, new Job(i + 1, jobName));
-			empArr[i] = empObj;
+			empArr.add(empObj);
 
 		}
 	}
-	
 
-	public    Employee findEmp(String nameInp) {
+	@Override
+	public void updateEmp(String nameUp, double salaryUp) {
 		// TODO Auto-generated method stub
+		System.out.println("Enter name and salary employ to update ! ");
+		for (Employee employee : empArr) {
+			if(nameUp.equals(employee.getName())){
+				employee.setSalary(salaryUp);
+			}
+		}
+	}
+
+	@Override
+	public Employee findEmp(String nameInp) {
+		// find list through index
+		
 		Employee employee = null;
-		for (int i = 0; i < empArr.length; i++) {
-			if (nameInp.equals(empArr[i].getName())) {
-				employee = empArr[i];
+		for (int i = 0; i < empArr.size(); i++) {
+			if(nameInp.equals(empArr.get(i).getName())) {
+				employee=empArr.get(i);
 				break;
 			}
 		}
+		
 		return employee;
 	}
 
 	@Override
 	public void showEmp() {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < empArr.length; i++) {
-			System.out.println(empArr[i].toString());
+		
+		
+		for (Employee employee : empArr) {
+			System.out.println(employee.toString());
 		}
+		
 	}
-
-	@Override
-	public void updateEmp(String name, double salaryUp) {
-		// TODO Auto-generated method stub
-		System.out.println("Enter name and salary employ to update ! ");
-		for(int i = 0;i< empArr.length;i++) {
-			if(name.equals(empArr[i].getName())) {
-				empArr[i].setSalary(salaryUp);
-			}
-		}
-	}
+	
 }
