@@ -12,7 +12,7 @@ public class ListManagement implements AbstractManagermentEmployee {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		showMenu();
-		System.out.println("The Program end !!! ");
+	
 	}
 	
 	private static void showMenu() {

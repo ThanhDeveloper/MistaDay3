@@ -32,7 +32,7 @@ public class ConnectionUtils {
 				String description =rs.getString("description");
 				String detail =rs.getString("detail");
 				String image =rs.getString("image");
-				Date date=(Date) rs.getDate("Timestamp");
+				Date date=(Date) rs.getDate("Timesta mp");
 				String user_id =rs.getString("user_id");
 				System.out.println("|"+id+"  | "+ category_id+"           | "+name+"          | "+description+" | "+detail+" |  "+image+"  | "+date+" | "+user_id );
 				
