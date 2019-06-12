@@ -1,280 +1,116 @@
 package News.Dao;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
-import News.bo.News;
-import News.Idao.INewsDao;
-import News.Utils.ConnectionUtils;
+import News.Idao.*;
+import News.bo.*;
+import News.Dao.*;
 
-public class NewsDaoImpl extends ConnectionUtils implements INewsDao {
-	public static int inputNumber;
-	public static Scanner input = new Scanner(System.in);
-	public static boolean isEndProgram = false;
-	//impl Load
-	@Override
-	public void LoadNews() { 	
-		Connection conn=null;
+public class NewsDaoImpl implements  INewsDao{
+	public static	ArrayList<News> listNews = new ArrayList<News>();
+	Scanner input = new Scanner(System.in);
+	public void addNews(News n, Statement s) {
+		// TODO Auto-generated method stub
+		String sql =" insert into News(id, category_id, name, descriptions, detail, imagine, date, user_id) values("+n.getId() +", " +n.getCategory_id() 
+		+ n.getName() +"','" +n.getDescription() + "'," + "'" +n.getDetail() + "'," + "'" +n.getImage() + "'," + "'" +n.getDate()+"," +n.getUser_id() +", '" 
+		+ "'"+ ")";
+		System.out.println(sql);
+	}
+	public void deleteNewsByName(String Named, Statement s) {
+		// TODO Auto-generated method stub
+		System.out.print("Nhap ten News muon xoa : ");
+		String Named1 = input.nextLine();
+		String sql =" delete News\r\n" + 
+				"where name = "+"'"+Named1+"'";
+		System.out.println(sql);
+	}
+	public void findNewsByName(String Namef, Statement s) {
+		// TODO Auto-generated method stub
+		 try {
+				String sql = "select *from News\r\n" + 
+						"where Name_news = "+"'"+Namef+"'";
+				ResultSet rs=null;
+				while (rs.next()) {
+					int id = rs.getInt("id");
+					int category_id = rs.getInt("category_id");
+					String description = rs.getString("description");
+					String name = rs.getString("name");
+					String detail = rs.getString("detail");
+					String image = rs.getString("imagine");
+					Date date = rs.getDate("Date");
+					int user_id = rs.getInt("user_id");
+			
+					News n = new News(id, category_id, description, name, image, date, user_id);
+					listNews.add(n);	
+				}
+			} catch (Exception e) {
+			
+				e.printStackTrace();
+			}
+		 		for (News ns : listNews) {
+		 			System.out.println(ns.getId()+"	 "+ns.getCategory_id()+"	"+ns.getName()+"	"+ns.getDescription()+" 	 "+ns.getDetail()+"		"+ns.getImage()+"	"+ns.getDate()+"  "+ns.getUser_id());
+		 		}
+	}
+	public void getNews(Statement s) {
+		// TODO Auto-generated method stub
 		try {
-			
-			conn=getConnection();
-			String sql="Select * from news";
-			Statement statement=conn.createStatement();
-			ResultSet rs=statement.executeQuery(sql);
-			
+			String sql = "select *from News";
+			ResultSet rs=null;
 			while (rs.next()) {
-				int id=  rs.getInt("id");
-				String name =rs.getString("name");
-				int category_id=  rs.getInt("category_id");
-				String description =rs.getString("description");
-				String detail =rs.getString("detail");
-				String image =rs.getString("image");
-				Date date=(Date) rs.getDate("Timestamp");
-				String user_id =rs.getString("user_id");
-				//Print
-				System.out.println("ID_News : "+id);
-				System.out.println("News_name : "+name);
-				System.out.println("Category_Id : "+category_id);
-				System.out.println("Description_News : "+description);
-				System.out.println("Detail : "+detail);
-				System.out.println("Image : "+image);
-				System.out.println("TimeStamp : "+date );
-				System.out.println("User_Id : "+user_id);	
-				System.out.println();
-				System.out.println("--------------------------------------------------------------------------------------------");
+				int id = rs.getInt("id");
+				int category_id = rs.getInt("category_id");
+				String description = rs.getString("description");
+				String name = rs.getString("name");
+				String detail = rs.getString("detail");
+				String image = rs.getString("imagine");
+				Date date = rs.getDate("Date");
+				int user_id = rs.getInt("user_id");
 				
+				News n = new News(id, category_id, description, name, image, date, user_id);
+				listNews.add(n);
+				for (News ns : listNews) {
+		 			System.out.println(ns.getId()+"	 "+ns.getCategory_id()+"	"+ns.getName()+"	"+ns.getDescription()+" 	 "+ns.getDetail()+"		"+ns.getImage()+"	"+ns.getDate()+"  "+ns.getUser_id());
+		 		}
 				
 			}
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}
-		
 	}
-
-	////impl Edit
-	@Override
-	public void EditNews() {
-		Scanner ScannerDes=new Scanner(System.in);
-		Connection conn=null;
-try {
-			
-			conn=getConnection();
-			
-			//Print
-				System.out.println("Input ID Update :");
-				System.out.println("ID_News : ");
-				int id=  Integer.parseInt(ScannerDes.nextLine());
-				System.out.println("News_name : ");
-				String name =ScannerDes.nextLine();
-				System.out.println("Category_Id : ");
-				int category_id=  Integer.parseInt(ScannerDes.nextLine());
-				System.out.println("Description_News : ");
-				String description =ScannerDes.nextLine();
-				System.out.println("Detail : ");
-				String detail =ScannerDes.nextLine();
-				System.out.println("Image : ");
-				String image =ScannerDes.nextLine();
-				System.out.println("TimeStamp : ");
-				String date=ScannerDes.nextLine();
-				System.out.println("User_Id : ");				
-				int user_id =ScannerDes.nextInt();
-				News newObj=new News( category_id, name, description, detail, image, date, user_id);
-				String sql="update news set "
-						+"category_id="+newObj.getCartegory_id()+","
-						+"Name='"+newObj.getName()+"',"
-						+"user_id="+newObj.getUserId()+","
-						+"description='"+newObj.getDescription()+"',"
-						+"detail='"+newObj.getDetail()+"',"
-						+"image='"+newObj.getImage()+"',"
-						+"timestamp='"+date+"'"
-						+"where id="+id;
-					
-						
-				Statement statement=conn.createStatement();
-				statement.executeUpdate(sql);
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		
-	}
-	//impl Add
-	@Override
-	public void AddNews() {
-		Scanner ScannerDes=new Scanner(System.in);
-		Connection conn=null;
-try {
-			
-			conn=getConnection();
-			
-			//Print
-				System.out.println("Input New News :");
-				System.out.println("ID_News : ");
-				int id=  Integer.parseInt(ScannerDes.nextLine());
-				System.out.println("News_name : ");
-				String name =ScannerDes.nextLine();
-				System.out.println("Category_Id : ");
-				int category_id=  Integer.parseInt(ScannerDes.nextLine());
-				System.out.println("Description_News : ");
-				String description =ScannerDes.nextLine();
-				System.out.println("Detail : ");
-				String detail =ScannerDes.nextLine();
-				System.out.println("Image : ");
-				String image =ScannerDes.nextLine();
-				System.out.println("TimeStamp : ");
-				String date=ScannerDes.nextLine();
-				System.out.println("User_Id : ");				
-				int user_id =ScannerDes.nextInt();
-				News newObj=new News(id, category_id, name, description, detail, image, date, user_id);
-				String sql="insert into news(id,category_id,name,description,detail,image,Timestamp,user_id) "
-						+ newObj.toString();
-				
-				Statement statement=conn.createStatement();
-				statement.executeUpdate(sql);
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		
-		
-	}
-	//impl delete
-	@Override
-	public void DeleteNews() {
-		Scanner del=new Scanner(System.in);
-		int idDel=del.nextInt();
-		Connection conn=null;
-		try {
-			System.out.println("Input id News to delete");
-			conn=getConnection();
-			String sql="delete from news where id="+idDel;
-			Statement statement=conn.createStatement();
-			statement.executeUpdate(sql);
-			
-	 } catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		
-	}
-	//impl Find
-	@Override
-	public void FindNews() {
-		Scanner inp=new Scanner(System.in);
-		System.out.println("Please input News name and category_id to find");
-		Connection conn=null;
-		try {
-			conn=getConnection();
-		System.out.println("input name");
-		String nameNews=inp.nextLine();
-		System.out.println("input category_id");
-		int carId=inp.nextInt();
-		String sql="Select * from news where name ='"+nameNews+"' and category_id="+carId;
-		System.out.println(sql);
-		Statement statement=conn.createStatement();
-		ResultSet rs=statement.executeQuery(sql);
-		while (rs.next()) {
-			int id=  rs.getInt("id");
-			String name =rs.getString("name");
-			int category_id=  rs.getInt("category_id");
-			String description =rs.getString("description");
-			String detail =rs.getString("detail");
-			String image =rs.getString("image");
-			Date date=(Date) rs.getDate("Timestamp");
-			String user_id =rs.getString("user_id");
-			//Print
-			System.out.println("ID_News : "+id);
-			System.out.println("News_name : "+name);
-			System.out.println("Category_Id : "+category_id);
-			System.out.println("Description_News : "+description);
-			System.out.println("Detail : "+detail);
-			System.out.println("Image : "+image);
-			System.out.println("TimeStamp : "+date );
-			System.out.println("User_Id : "+user_id);	
-			System.out.println();
-			System.out.println("--------------------------------------------------------------------------------------------");
-			
-			
-		}
-	} catch (Exception e) {
-		
-		e.printStackTrace();
-	}
-	
-}
-
-	@Override
-	public void menu() {
-		NewsDaoImpl action=new NewsDaoImpl();
+	public void updateNewsByName(String NameU, Statement s) {
 		// TODO Auto-generated method stub
-		do {
-			// menu CodeTodo
-						System.out.println("1: Show  news");
-						System.out.println("2: Create News");
-						System.out.println("3: Edit News");
-						System.out.println("4: Delete News");
-						System.out.println("5: Find News");
-						System.out.println("Enter 0 to ESC");
-						System.out.println("--------------------------------------");
-						System.out.println("Choose one Action !");
-						inputNumber = input.nextInt();
-						
-		switch (inputNumber) {
-		case 0:
-			break;
-		case 1:
-			action.LoadNews();
-			askForContinues();
-			break;
-		case 2:
-			action.AddNews();
-			askForContinues();
-			break;
-		case 3:
-			action.EditNews();
-			askForContinues();
-			break;
-		case 4:
-			action.DeleteNews();
-			askForContinues();
-			break;
-		case 5:
-			action.FindNews();
-			askForContinues();
-			
-			break;
-
-		default:
-			System.out.println(" Your input wrong,Enter again! ");
-			break;
-			
-		}				
-						
-		} while ( inputNumber!=0);
+		System.out.print("Nhap ten News muon thay doi : ");
+		String name = input.nextLine();
+		String sql ="update News\r\n" + 
+				"set name = "+"'"+name+"'"+"\r\n" + 
+				"where Name_news ="+"'"+NameU+"'";
 		
-			
-	}
-
-	@Override
-	public void askForContinues() {
-		System.out.println("Do you want to continue? (Press 0 to end proram, 1 to come back menu) : ");
-		int inputNo = input.nextInt();
-		switch (inputNo) {
-		case 1:
-			menu();
-			break;
-		case 0:
-			isEndProgram = true;
-			break;
-		default:
-			break;
-		}
 		
 	}
+	public void addNews(News n, java.beans.Statement s) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void deleteNewsByName(String Named, java.beans.Statement s) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void findNewsByName(String Namef, java.beans.Statement s) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void getNews(java.beans.Statement s) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void updateNewsByName(String NameU, java.beans.Statement s) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
