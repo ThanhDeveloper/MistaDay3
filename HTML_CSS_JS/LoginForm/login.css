@@ -1,0 +1,30 @@
+form{
+
+	box-sizing: border-box;
+	border-radius: 3px;
+	box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+	padding-bottom: 30px;
+	width: 270px;
+	margin: 100px auto  0 ;
+	color: blue;
+	border-radius: 30px;
+}
+h3{
+	background-color: red;
+
+}
+label{
+	margin-top: 30px;
+}
+input{
+	margin: 10px;
+	display: inline-block;
+}
+button{
+	cursor: pointer;
+	background-color: pink;	
+	border-radius: 3px;
+}
+button:hover{
+background-color: blue;
+}
