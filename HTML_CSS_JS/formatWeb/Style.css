@@ -1,0 +1,32 @@
+
+
+#wraper{
+	margin: 10px auto;
+	width: 960px;
+
+}
+
+#logo{
+	overflow: hidden;
+}
+#logo img{
+	float:  left;
+}
+#logo form{
+	float : right;
+}
+#main_nav ul li {
+	display: inline;
+	list-style: none;
+	padding: 30px;
+
+}
+#main_nav{
+	padding: 10px;
+	overflow: hidden;
+	font-size: 1.2em;
+	background-color: #b4c887;
+}
+#main_nav li a:hover{
+	background-color: 
+}
