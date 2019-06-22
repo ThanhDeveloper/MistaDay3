@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+body{
+	
+	margin: 0;
+	padding:0;
+	 background: #E9EBEE;
+}
+
+header{
+	color: white ;
+	width: 100%;
+  	height: 15vh;
+  	
+  	display: flex;
+  	background-color: #355089;
+}
+main{
+ width: 100%;
+ height: 65vh;
+
+}
+
+footer{
+	width: 100%;
+	
+	background-color: white;
+}
+header ul li{
+	display: inline-block;
+	
+}
+#Box_Login{
+	border: none;
+	width: 600px;
+	height: 300px;
+	background: white;
+	margin:  auto;
+	margin-top: 80px;
+}
+#Box_Login form{
+	text-align: center;
+
+}
+#Box_Login form h2{
+	padding-top: 35px;
+}
+#Box_Login form ul li {
+	padding-top: 10px;
+	list-style: none;
+
+}
+.textInp{
+	width: 250px;
+	height: 23px;
+	margin-right: 37px;
+}
+button{
+	cursor: pointer;
+	width: 255px;
+	height: 30px;
+	margin-right: 37px;
+	background: #6666FF;
+}
+button:hover{
+	background-color: #355089;
+}
+.sup li{
+
+	list-style: none;
+	display: inline-block;
+}
+.sup li a {
+	text-decoration: none;
+}
+.sup{
+
+	margin-right: 23px;
+}
+
+footer{
+	
+	font-size: 14px;
+}
+
+#list_1{
+	padding-top: 100px;
+}
+#list_1 li{
+	display: inline;
+	list-style: none;
+}
+#list_2 li{
+	display: inline;
+	list-style: none;
+}
+
+#list_3 li{
+	display: inline;
+	list-style: none;
+}
+footer ul{
+
+	padding-left: 220px;
+}
+footer ul li {
+
+	padding: 5px;
+}
+footer ul li a{
+	
+	text-decoration: none;
+}
+hr{
+	width: 850px;
+}
+#menu ul li {
+
+	display: inline-block;
+	padding: 10px;
+}
+#menu ul li input{
+	border: none;
+	height: 25px;
+	margin-bottom: 20px;
+	background-color: #009900;
+}
+#menu ul li input:hover{
+	background: #006600;
+
+}
+#menu{
+	font-family: 'Montserrat', sans-serif;
+}
