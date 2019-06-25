@@ -1,0 +1,13 @@
+img{
+	width: 400px;
+}
+.carousel-control-prev-icon {
+     background-image: url(../images/previous-32.png);
+     width: 32px;
+     height: 32px;
+}
+ .carousel-control-next-icon {
+     background-image: url(../images/next-32.png);
+     width: 32px;
+     height: 32px;
+}
