@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+nav {
+    background-color: #000000;
+    cursor: pointer;
+}
+.container{
+	margin-top: 80px;
+}
+#logo {
+    width: 60px;
+    height: 23px;
+
+}
+#wrapper {
+    margin: 10px auto;
+    width: 960px;
+
+}
+#map{
+display:inline-block;
+width: 350px;
+}
+#detail{
+
+	float: right ;
+	width: 300px;
+	display: inline-block;
+}
+#contact  {
+	
+	list-style: none;
+}
+footer{
+	width: 100%;
+	background-color: #000000;
+	overflow-y: auto;
+	color: White;
+	text-align: center;
+}

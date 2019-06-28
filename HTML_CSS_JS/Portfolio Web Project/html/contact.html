@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="../css/contact.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark  fixed-top">
+        <a class="navbar-brand" href="index.html"><img src="https://i.etsystatic.com/9917841/r/il/4789c3/882218030/il_570xN.882218030_i3w0.jpg" id="logo"></a>
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../html/about.html">About</a>
+            <li class="nav-item">
+                <a class="nav-link" href="../html/service.html">Service</a>
+            </li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../html/contact.html">Contact</a>
+            </li>
+            <!--Dropdown list-->
+            <li class="nav-item dropdown">
+                <a href="" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                    Portfolio
+                </a>
+                <div class="dropdown-menu">
+                    <a href="../html/Portfolio1.html" class="dropdown-item">Portfolio 1</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                    Blog
+                </a>
+                <div class="dropdown-menu">
+                    <a href="../html/blog1.html" class="dropdown-item">Blog home one</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                    Other Pages
+                </a>
+                <div class="dropdown-menu">
+                    <a href="../html/price.html" class="dropdown-item">Pricing</a>
+                </div>
+            </li>
+        </ul>
+        <form class=" form-inline" action="" method="post">
+            <input type="text" placeholder="Search" class="form-control mr-sm-2">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+    </nav>
+    <div id="wrapper">
+        <div class="container">
+            <h4 style="font-family: 'Lobster', cursive;">Contact here !</h4>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">HomePage</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+            </ul>
+        </div>
+        <!--Contact detail-->
+        <ul id="contact">
+            <li id="map">
+                <div style="width:500px;height:500px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </li>
+            <li id="detail">
+                <h4>Contact Details</h4>
+                <ul>
+                    <li>Address: Quang Nam-Da Nang</li>
+                    <li>Phone: (+84)0765534228</li>
+                    <li>Email: Thanhdev98@gmail.com</li>
+                </ul>
+            </li>
+        </ul>
+        <!--Form-->
+        <h4>Send me a message</h4>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write something"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <!--footer-->
+    <footer>
+        <p>Design by Thanh Nguyen</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

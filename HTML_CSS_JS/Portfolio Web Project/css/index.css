@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+nav {
+    background-color: #000000;
+    cursor: pointer;
+}
+
+#logo {
+    width: 60px;
+    height: 23px;
+
+}
+
+#status {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+}
+
+#myCarousel img {
+    height: 400px;
+}
+
+#wrapper {
+    margin: 10px auto;
+    width: 960px;
+
+}
+
+#card ul li {
+    display: inline-block;
+    width: 30%;
+
+}
+
+.card img {
+    width: 243px;
+}
+
+
+
+.index{
+    font-family: 'Lobster', cursive;
+   	color: pink;
+   	font-style: bold;
+}
+.img-project{
+	width: 250px;
+}
+
+#content-1{
+	display: inline-block;
+	
+	float: left;
+	width: 400px;
+
+}
+#img-content-1{
+	display: inline-block;
+	float: right;
+	margin-right: 10px;
+}
+#img-content-1 img{
+	width: 350px;
+	height: 230px;
+}
+#action{
+	display: block;
+}
+
+#footer{
+    color: white;
+	width: 100%;
+	background-color: #000000;
+    overflow-y: auto;
+}

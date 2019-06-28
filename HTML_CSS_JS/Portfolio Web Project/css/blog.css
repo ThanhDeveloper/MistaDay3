@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+nav {
+    background-color: #000000;
+    cursor: pointer;
+}
+.container{
+    margin-top: 80px;
+}
+#logo {
+    width: 60px;
+    height:  23px;
+
+}
+#wrapper {
+    margin: 10px auto;
+    width: 960px;
+
+}
+
+
+footer{
+    width: 100%;
+    background-color: #000000;
+    overflow-y: auto;
+    color: White;
+    text-align: center;
+}
+
+.card-img-top{
+    
+    height: 300px;
+}
+#left{
+    margin-left: 18px; 
+    display: inline-block;
+}
+#right{
+    margin-right: 18px;
+    float: right;
+    display: inline-block;
+
+}
+#right ul li{
+    list-style: none;
+}

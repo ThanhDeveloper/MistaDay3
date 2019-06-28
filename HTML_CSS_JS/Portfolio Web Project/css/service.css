@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+nav {
+    background-color: #000000;
+    cursor: pointer;
+}
+.container{
+    margin-top: 80px;
+}
+#logo {
+    width: 60px;
+    height:  23px;
+
+}
+#wrapper {
+    margin: 10px auto;
+    width: 960px;
+
+}
+.carousel-item img{
+    width: 100%;
+    margin-top: 50px;
+    height: 400px;
+}
+
+footer{
+    width: 100%;
+    background-color: #000000;
+    overflow-y: auto;
+    color: White;
+    text-align: center;
+}
+#card ul li{
+    list-style: none;
+    display: inline-block;
+}
+.card-img-top{
+    height: 200px;
+}
