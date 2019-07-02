@@ -1,0 +1,32 @@
+body{
+	background-color: grey;
+}
+#wrapper{
+	display: inline-block;
+	width: 1100px;
+	margin : 0px auto;
+	float: right;
+	background-color: #ffffff;
+	margin-right: 50px;
+	height: 700px;
+
+}
+#vertical-menu{
+	display: inline-block;
+}
+.card{
+	width: 90%;
+	margin:0 auto;
+}
+select{
+	margin: 10px 0px 10px 0px;
+}
+.row1 p{
+display: inline-block;
+}
+.row1 form{
+	float: right;
+}
+.pagi ul{
+float: right;
+}
