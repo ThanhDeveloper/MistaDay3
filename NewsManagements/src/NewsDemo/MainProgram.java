@@ -49,7 +49,7 @@ public class MainProgram {
 				String detail = input1.nextLine();
 				System.out.println("Nhap hinh anh :");
 				String image = input1.nextLine();
-				Date date = new Date();
+				Date date = new Date(input0);
 				News n = new News(id, category_id, description, name, image, date, user_id);
 				news1.addNews(n, s);
 				break;
