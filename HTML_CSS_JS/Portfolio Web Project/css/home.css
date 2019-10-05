@@ -21,7 +21,7 @@ nav {
 
 #wrapper {
     margin: 10px auto;
-    width: 960px;
+    width: 1250px;
 
 }
 
@@ -69,6 +69,13 @@ nav {
 #footer{
     color: white;
 	width: 100%;
-	background-color: #000000;
+	background-color: #000033;
     overflow-y: auto;
 }
+
+.customize_weather_card
+{
+    margin-left: 1100px;
+    margin-top: -412px;
+}
+
