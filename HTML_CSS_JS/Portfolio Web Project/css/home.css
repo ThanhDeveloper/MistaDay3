@@ -20,17 +20,23 @@ nav {
 }
 
 #wrapper {
-    margin: 10px auto;
+    margin:0px auto;
     width: 1250px;
-
+    background-image: url(https://previews.123rf.com/images/tukkki/tukkki1301/tukkki130100008/17112678-linear-pattern-with-gray-colors-ideal-for-a-website-background-or-holiday-wrapping-paper-or-wedding-.jpg);
 }
 
 #card ul li {
     display: inline-block;
     width: 30%;
+    text-align: center;
+
 
 }
 
+#card{
+    text-align: center;
+    padding-left: 30px;
+}
 .card img {
     width: 243px;
 }
@@ -71,11 +77,12 @@ nav {
 	width: 100%;
 	background-color: #000033;
     overflow-y: auto;
+    background-image: url(http://backgrounddownload.com/wp-content/uploads/2018/09/cool-website-background-textures-5.jpg);
 }
 
 .customize_weather_card
 {
-    margin-left: 1100px;
+    margin-left: 1200px;
     margin-top: -412px;
 }
 
